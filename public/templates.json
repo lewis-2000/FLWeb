@@ -41,6 +41,63 @@
       }
     }
   },
+  "group2": {
+    "header": {
+      "component": "Header",
+      "data": {
+        "title": "Our Amazing App",
+        "tagline": "The best experience awaits!"
+      }
+    },
+    "maincontent": {
+      "component": "MainContent",
+      "data": {
+        "articles": [
+          "Article 1",
+          "Article 2",
+          "Article 3"
+        ]
+      }
+    },
+    "testimonials": {
+      "component": "Testimonials",
+      "data": {
+        "reviews": [
+          "Great app!",
+          "Loved it!",
+          "Highly recommend!"
+        ]
+      }
+    }
+  },
+  "base-01": {
+    "hero": {
+      "component": "CenteredTextHero",
+      "data": {
+        "title": "Centered Hero Title Text",
+        "subtitle": "Centered Hero subtitle",
+        "buttonText": "Hero Button"
+      }
+    },
+    "hero2": {
+      "component": "ImageBackgroundHero",
+      "data": {
+        "title": "Centered Hero Title Text",
+        "subtitle": "Centered Hero subtitle",
+        "buttonText": "Hero Button",
+        "backgroundImageUrl": "/img2.jpg"
+      }
+    },
+    "hero3": {
+      "component": "VideoBackgroundHero",
+      "data": {
+        "title": "Centered Hero Title Text",
+        "subtitle": "Centered Hero subtitle",
+        "buttonText": "Hero Button",
+        "videoUrl": "/vid1.mp4"
+      }
+    }
+  },
   "base-02": {
     "hero": {
       "component": "ImageSliderForegroundCenterTextHero",
