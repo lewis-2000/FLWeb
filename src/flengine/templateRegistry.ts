@@ -24,6 +24,27 @@ import VideoBackgroundHero from "../components/hero/VideoBackgroundHero";
 // import HeroWithActionButtonsAndRightImage from "../components/hero/heroWithActionButtonsAndRightImage";
 import ImageSliderForegroundCenterTextHero from "../components/hero/ImageSliderForegroundCenterTextHero";
 
+
+
+
+
+//Assets
+
+
+const images = {
+    heroImages: [
+        "/img1.jpg",
+        "/img2.jpg",
+        "/img3.jpg",
+        "/img4.jpg",
+        "/img5.webp",
+    ],
+};
+
+
+
+
+
 // Register the first template group
 TemplateManager.registerTemplateGroup("group1", {
   sidemenumobile: { component: SideMenu, data: { name: "Side Menu", links: [
@@ -53,13 +74,20 @@ TemplateManager.registerTemplateGroup("base-01",{
 
 });
 
-TemplateManager.registerTemplateGroup("base-02",{
-    hero:{component: ImageSliderForegroundCenterTextHero, data:{
-      title:"Welcome to My Hero Section Title", subtitle:"Subtitle static text",backgroundImageUrl1:"/img1.jpg", backgroundImageUrl2:"/img2.jpg", backgroundImageUrl3:"/img3.jpg", backgroundImageUrl4:"/img4.jpg", backgroundImageUrl5:"/img5.webp"
-    }},
-    maincontent: { component: MainContent, data: { articles: ["Article 1", "Article 2", "Article 3"] }},
-
-})
+TemplateManager.registerTemplateGroup("base-02", {
+    hero: {
+        component: ImageSliderForegroundCenterTextHero,
+        data: {
+            title: "Welcome to My Hero Section Title",
+            subtitle: "Subtitle static text",
+            backgroundImages: images.heroImages,
+        },
+    },
+    maincontent: {
+        component: MainContent,
+        data: { articles: ["Article 1", "Article 2", "Article 3"] },
+    },
+});
 
 
 // console.log("All Templates",TemplateManager.getAllTemplates());

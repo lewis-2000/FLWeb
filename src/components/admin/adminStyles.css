@@ -3,10 +3,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: yellow-500; /* Replace with your desired color */
+  background-color: #eab308;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: gray-900; /* Replace with your desired color */
+  background-color: #111827;
 }

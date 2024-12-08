@@ -1,7 +1,7 @@
 
 const Testimonials = () => {
     return (
-        <div>Testimonials</div>
+        <div className="h-screen w-full">Testimonials</div>
     )
 }
 

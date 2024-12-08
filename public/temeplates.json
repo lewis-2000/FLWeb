@@ -1,0 +1,70 @@
+{
+  "group1": {
+    "sidemenumobile": {
+      "component": "SideMenu",
+      "data": {
+        "name": "Side Menu",
+        "links": [
+          {
+            "name": "Home",
+            "url": "https://example.com/home"
+          },
+          {
+            "name": "About",
+            "url": "https://example.com/about"
+          },
+          {
+            "name": "Contact",
+            "url": "https://example.com/contact"
+          }
+        ]
+      }
+    },
+    "hero": {
+      "component": "HeroSection",
+      "data": {
+        "title": "Welcome to Our Site",
+        "subtitle": "Explore the world of React!"
+      }
+    },
+    "contact": {
+      "component": "Contact",
+      "data": {
+        "email": "contact@company.com",
+        "phone": "+1234567890"
+      }
+    },
+    "footer": {
+      "component": "Footer",
+      "data": {
+        "copyright": "© 2024 FLEngine"
+      }
+    }
+  },
+  "base-02": {
+    "hero": {
+      "component": "ImageSliderForegroundCenterTextHero",
+      "data": {
+        "title": "Welcome to My Hero Section Title",
+        "subtitle": "Subtitle static text",
+        "backgroundImages": [
+          "/img1.jpg",
+          "/img2.jpg",
+          "/img3.jpg",
+          "/img4.jpg",
+          "/img5.webp"
+        ]
+      }
+    },
+    "maincontent": {
+      "component": "MainContent",
+      "data": {
+        "articles": [
+          "Article 1",
+          "Article 2",
+          "Article 3"
+        ]
+      }
+    }
+  }
+}

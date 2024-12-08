@@ -1,7 +1,7 @@
 
 const Header = () => {
     return (
-        <div>Header</div>
+        <div className="h-screen w-full">Header</div>
     )
 }
 
