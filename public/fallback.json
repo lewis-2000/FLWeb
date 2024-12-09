@@ -1,0 +1,10 @@
+{
+    "template1": {
+        "name": "Default Template",
+        "content": "This is the default template content."
+    },
+    "template2": {
+        "name": "Another Template",
+        "content": "This is another default template."
+    }
+}

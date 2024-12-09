@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
-  width: 4px; /* Adjust the width as needed */
+  width: 4px;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
