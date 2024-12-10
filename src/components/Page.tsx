@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TemplateManager from "../flengine/templateManager";
+import LoadingScreen from "./Loading/LoadingScreen";
 
 const Page: React.FC<{ groupId: string }> = ({ groupId }) => {
     const [templateGroup, setTemplateGroup] = useState(() => TemplateManager.getTemplateGroup(groupId));
@@ -20,7 +21,7 @@ const Page: React.FC<{ groupId: string }> = ({ groupId }) => {
     }, [groupId, templateGroup]);
 
     if (isLoading) {
-        return <div className="text-yellow-500">Loading templates...</div>;
+        return <LoadingScreen />;
     }
 
     if (!templateGroup) {

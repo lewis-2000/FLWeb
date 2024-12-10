@@ -5,7 +5,7 @@ interface SideMenuProps {
     links: { name: string; href: string }[];
 }
 
-const SideMenu: React.FC<SideMenuProps> = ({ links }) => {
+const SideMenuMobile: React.FC<SideMenuProps> = ({ links }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     // console.log("Links", links);
@@ -40,4 +40,4 @@ const SideMenu: React.FC<SideMenuProps> = ({ links }) => {
     );
 };
 
-export default SideMenu;
+export default SideMenuMobile;

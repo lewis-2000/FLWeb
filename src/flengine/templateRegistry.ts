@@ -4,7 +4,7 @@ import axios from "axios";
 import TemplateManager from "./templateManager";
 
 // Import all the components used in the templates
-import SideMenu from "../components/headers/SideMenuMobile";
+import SideMenuMobile from "../components/headers/SideMenuMobile";
 import HeroSection from "../components/HeroSection";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -24,9 +24,9 @@ type TemplateData = Record<string, any>;
 
 // Define a mapping of component names to actual React components
 const componentMapping: Record<string, TemplateComponent> = {
+    SideMenuMobile,
     ImageSliderForegroundCenterTextHero,
     MainContent,
-    SideMenu,
     HeroSection,
     Contact,
     Footer,
@@ -35,7 +35,7 @@ const componentMapping: Record<string, TemplateComponent> = {
     ImageBackgroundHero,
     VideoBackgroundHero,
     Testimonials,
-    // Add more components here as needed
+    // Add more components here 
 };
 
 // Define the structure of the JSON templates

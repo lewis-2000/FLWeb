@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import TemplateManager from "../../flengine/templateManager";
 import Page from "../Page";
-import { IoMdCodeDownload, IoMdSave, IoMdSettings, IoMdArrowDropdown, IoMdDocument } from "react-icons/io";
+import { IoMdCodeDownload } from "react-icons/io";
+import { IoMdSave, IoMdListBox } from "react-icons/io";
 
 const TemplateConfig: React.FC = () => {
     const [allGroups, setAllGroups] = useState<string[]>([]);
@@ -86,10 +87,7 @@ const TemplateConfig: React.FC = () => {
             if (typeof value === "object" && value !== null) {
                 return (
                     <div key={key} className="ml-4 mt-2">
-                        <h4 className="text-gray-700 font-semibold flex items-center">
-                            <IoMdDocument className="mr-2 text-blue-500" />
-                            {key}
-                        </h4>
+                        <h4 className="text-gray-700 font-semibold">{key}</h4>
                         {renderFields(value, templateId, currentPath)}
                     </div>
                 );
@@ -113,26 +111,22 @@ const TemplateConfig: React.FC = () => {
         <div className="min-h-screen bg-gray-100 p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Header Section */}
             <header className="col-span-full flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-blue-600 flex items-center">
-                    <IoMdSettings className="mr-2" />
-                    Editor
+                <h1 className="text-2xl font-bold text-blue-600 flex items-center gap-2">
+                    <IoMdListBox /> Editor
                 </h1>
                 <div className="flex items-center gap-4">
                     {/* Group Selector */}
-                    <div className="relative">
-                        <select
-                            className="p-2 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 appearance-none"
-                            value={selectedGroup}
-                            onChange={(e) => setSelectedGroup(e.target.value)}
-                        >
-                            {allGroups.map((groupId) => (
-                                <option key={groupId} value={groupId}>
-                                    {groupId}
-                                </option>
-                            ))}
-                        </select>
-                        <IoMdArrowDropdown className="absolute top-1/2 right-2 transform -translate-y-1/2 pointer-events-none text-gray-500" />
-                    </div>
+                    <select
+                        className="p-2 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
+                        value={selectedGroup}
+                        onChange={(e) => setSelectedGroup(e.target.value)}
+                    >
+                        {allGroups.map((groupId) => (
+                            <option key={groupId} value={groupId}>
+                                {groupId}
+                            </option>
+                        ))}
+                    </select>
                     <button
                         className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center gap-2"
                         onClick={handleDownload}
@@ -145,10 +139,7 @@ const TemplateConfig: React.FC = () => {
 
             {/* Input Fields Section */}
             <section className="bg-white p-6 rounded-lg shadow-md h-[81vh] overflow-hidden">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                    <IoMdDocument className="mr-2 text-blue-500" />
-                    Templates
-                </h2>
+                <h2 className="text-lg font-semibold text-gray-800 mb-4">Templates</h2>
                 <div className="h-full overflow-y-auto pr-4 pb-10">
                     {Object.entries(editData).map(([templateId, data]) => (
                         <div key={templateId} className="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-md">
@@ -177,7 +168,8 @@ const TemplateConfig: React.FC = () => {
 
             {/* Live Preview Section */}
             <section className="col-span-1 lg:col-span-2 bg-white rounded-tr-lg rounded-tl-lg shadow-md h-[81vh] overflow-auto">
-                <h2 className="text-lg font-semibold text-gray-800 px-3 py-1">
+                <h2 className="text-lg font-semibold text-gray-800 px-3 py-1 flex items-center gap-2">
+                    <IoMdListBox />
                     Live Preview: {selectedGroup}
                 </h2>
                 <div>
