@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+# **Static Templating Engine**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a static templating engine designed for simplicity and accessibility. It allows users, especially students, to easily edit content and host their online portfolios on platforms like GitHub Pages without requiring backend servers. Built with **React**, **Vite**, and **Tailwind CSS**, it combines a sleek user interface with powerful template management capabilities.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Features**
+- 🛠️ **Customizable Templates:** Manage and edit pre-built templates dynamically.
+- 🌐 **Static Hosting Ready:** Perfect for hosting on platforms like GitHub Pages.
+- 🎨 **Responsive Design:** Built with a dark-themed aesthetic using Tailwind CSS.
+- ⚙️ **Powered by FLEngine:** The template engine ensures easy editing and configuration.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## **Screenshots**
+### **Editor in Action**
+![Editor Screenshot](./images/editor-screenshot.jpeg)
 
-- Configure the top-level `parserOptions` property like this:
+### **Live Preview**
+![Live Preview Screenshot](./images/live-preview-screenshot.jpeg)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## **Getting Started**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### **Prerequisites**
+- **Node.js** (>=16.x recommended)
+- **Yarn** (or npm)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### **Installation**
+1. Clone the repository:
+   ```bash
+   https://github.com/lewis-2000/FLWeb.git
+   cd FLWeb
+
+2. Install Dependencies:
+  ```bash
+    yarn install 
+    #or with npm
+    npm install
+
+3. Running the Development Server:
+  ```bash
+  yarn dev
+  # Or with npm
+  npm run dev
+
+4. Building for Production:
+  ```bash
+  yarn dev
+  # Or with npm
+  npm run dev
+
