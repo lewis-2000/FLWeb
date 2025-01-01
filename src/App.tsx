@@ -1,21 +1,20 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-
-import './App.css';
-import Page from './components/Page'
-import './flengine/templateRegistry'
-import TemplateConfig from './components/admin/TemplateConfig';
-
-const App: React.FC = () => {
+import "./modules/templateRegistry"; // Register Templates in the Registry
+// import "./modules/JsonTemplateRegistry"; // Register Templates from JSON file
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Base from "./Base";
+import ContentEditor from "./components/samples/ContentEditor";
+import Editor from "./components/editor/Editor";
+function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Page groupId="base-02" />} />
-        <Route path="/builder" element={<TemplateConfig />} />
+        <Route path="/" element={<Base id="homepage" />} />
+        <Route path="/builder" element={<ContentEditor />} />
+        <Route path="/dev" element={<Editor />} />
       </Routes>
-
     </div>
   );
-};
+}
 
 export default App;
