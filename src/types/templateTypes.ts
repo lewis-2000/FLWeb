@@ -8,5 +8,9 @@ export interface templateTypes {
   components: {
     component: ComponentType<any>;
     data: Record<string, any>;
+    settings?: {
+      styles?: Record<string, string | number>;
+      [key: string]: any; // Extendable for other settings
+    };
   }[];
 }

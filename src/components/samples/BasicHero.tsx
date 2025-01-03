@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const BasicHero: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
   return (
-    <section className="h-screen flex flex-col justify-center align-middle bg-gray-800 text-white">
+    <section className="h-screen flex flex-col justify-center items-center bg-gray-800 text-white">
       <h1>{title}</h1>
       <p>{subtitle}</p>
     </section>
