@@ -7,7 +7,7 @@ import Base from "../../Base";
 const ContentEditor: React.FC = () => {
   const templates = TemplateManagerAPI.getAllTemplates();
 
-  console.log(templates);
+  // console.log(templates);
 
   const handleSave = (templateId: string, updatedData: Partial<any>) => {
     TemplateManagerAPI.updateTemplate(templateId, updatedData);

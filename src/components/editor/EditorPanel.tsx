@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../../store/store";
 import { toggleEditorPanel } from "../../store/slices/interactionsSlice";
@@ -21,56 +19,15 @@ const EditorPanel: React.FC = () => {
     ? TemplateManagerAPI.getTemplate(selectedTemplateId)
     : undefined;
 
-  const templateName = selectedTemplate
-    ? selectedTemplate.name
-    : "No template selected";
-
   const components = selectedTemplate?.components || [];
 
-  // Local state to manage editable data
-  const [editData, setEditData] = useState<Record<string, any>>({});
+  // Log component data for debugging purposes
+  const componentData = components.map((components) => components.data);
+  console.log("EditorPanel - component data: ", componentData);
 
-  // Initialize editData with component data
-  useEffect(() => {
-    if (selectedTemplate) {
-      const initialData = selectedTemplate.components.reduce(
-        (acc, component, index) => ({
-          ...acc,
-          [index]: component.data || {},
-        }),
-        {}
-      );
-      setEditData(initialData);
-    }
-  }, [selectedTemplate]);
-
-  const updateComponentData = async (
-    componentIndex: number,
-    key: string,
-    value: any
-  ) => {
-    // Update local editData state
-    setEditData((prev) => ({
-      ...prev,
-      [componentIndex]: {
-        ...prev[componentIndex],
-        [key]: value,
-      },
-    }));
-
-    // Update API or Redux state
-    if (selectedTemplate) {
-      const updatedComponents = selectedTemplate.components.map(
-        (component, index) =>
-          index === componentIndex
-            ? { ...component, data: { ...component.data, [key]: value } }
-            : component
-      );
-      await TemplateManagerAPI.updateTemplate(selectedTemplate.id, {
-        components: updatedComponents,
-      });
-    }
-  };
+  //Log component settings for debug purposes
+  const componentSettings = components.map((components) => components.settings);
+  console.log("EditorPanel - component settings: ", componentSettings);
 
   return (
     <div className="flex flex-col h-full bg-[#ededed]">
@@ -79,98 +36,53 @@ const EditorPanel: React.FC = () => {
         {!isCollapsed && "Status"}
       </div>
 
-      {/* Content Editing Section */}
+      {/* Content Editing Section Placeholder */}
       {!isCollapsed && (
         <div className="flex-grow w-full p-3 text-gray-700 overflow-y-auto">
           <h2 className="text-lg font-semibold mb-3">Edit Template</h2>
-          <p className="text-sm text-gray-600 mb-3">{templateName}</p>
-
-          {/* Accordion for Component Settings */}
+          <p className="text-sm text-gray-600 mb-3">
+            {selectedTemplate ? selectedTemplate.name : "No template selected"}
+          </p>
           <div className="space-y-3">
             {components.map((component, index) => (
               <div
                 key={index}
-                className="border rounded-lg overflow-hidden shadow-sm bg-white"
+                className="text-sm text-gray-700 flex flex-col space-y-2"
               >
-                {/* Accordion Header */}
-                <div
-                  className="p-3 flex justify-between items-center cursor-pointer bg-gray-200 hover:bg-gray-300"
-                  onClick={(e) => {
-                    const target = e.currentTarget.nextElementSibling;
-                    if (target) {
-                      target.classList.toggle("hidden");
-                    }
-                  }}
-                >
-                  <h3 className="text-sm font-medium text-gray-800">
-                    Component {index + 1}: {component.component.name}
-                  </h3>
-                  <span className="text-sm text-gray-500">▼</span>
+                <p>
+                  Component {index + 1}: {component.component.name}
+                </p>
+
+                {/* Data */}
+                <div className="flex flex-col gap-2">
+                  <input
+                    type="text"
+                    value={component.data.title || ""}
+                    onChange={(e) => {
+                      // Handle updates here
+                      console.log("New Title: ", e.target.value);
+                    }}
+                    className="border rounded p-1"
+                  />
                 </div>
 
-                {/* Accordion Content */}
-                <div className="hidden p-3 space-y-2">
-                  {/* Editable Data Settings */}
-                  {Object.entries(editData[index] || {}).map(([key, value]) => (
-                    <div key={key} className="flex flex-col">
-                      <label
-                        className="text-xs text-gray-600 mb-1"
-                        htmlFor={`data-${index}-${key}`}
-                      >
-                        {key.charAt(0).toUpperCase() + key.slice(1)}
-                      </label>
-                      <input
-                        id={`data-${index}-${key}`}
-                        type="text"
-                        className="border border-gray-300 rounded p-2 text-sm"
-                        value={
-                          value as
-                            | string
-                            | number
-                            | readonly string[]
-                            | undefined
-                        }
-                        onChange={(e) =>
-                          updateComponentData(index, key, e.target.value)
-                        }
-                      />
-                    </div>
-                  ))}
-
-                  {/* Editable Settings */}
-                  {component.settings &&
-                    Object.entries(component.settings).length > 0 && (
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                          Component Settings
-                        </h4>
-                        {Object.entries(component.settings).map(
-                          ([key, value]) => (
-                            <div key={key} className="flex flex-col">
-                              <label
-                                className="text-xs text-gray-600 mb-1"
-                                htmlFor={`settings-${index}-${key}`}
-                              >
-                                {key.charAt(0).toUpperCase() + key.slice(1)}
-                              </label>
-                              <input
-                                id={`settings-${index}-${key}`}
-                                type="text"
-                                className="border border-gray-300 rounded p-2 text-sm"
-                                value={value}
-                                onChange={(e) =>
-                                  updateComponentData(
-                                    index,
-                                    key,
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
-                          )
-                        )}
-                      </div>
-                    )}
+                {/* Settings */}
+                <div className="flex flex-col gap-2">
+                  <label htmlFor={`settings-${index}-color`}>
+                    Color:
+                    <input
+                      type="color"
+                      className="rouded-full"
+                      id={`settings-${index}-color`}
+                      value={
+                        component.settings?.colors?.backgroundColor || "#000000"
+                      }
+                      onChange={(e) => {
+                        // Handle updates here
+                        console.log("New Color: ", e.target.value);
+                      }}
+                    />
+                  </label>
                 </div>
               </div>
             ))}

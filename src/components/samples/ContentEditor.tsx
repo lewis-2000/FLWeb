@@ -6,7 +6,7 @@ import Base from "../../Base";
 const ContentEditor: React.FC = () => {
   const templates = TemplateManagerAPI.getAllTemplates();
 
-  console.log(templates);
+  // console.log(templates);
   return (
     <div className="min-h-screen bg-gray-100 p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Header Section */}

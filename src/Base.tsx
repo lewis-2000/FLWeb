@@ -32,7 +32,7 @@ const Base: React.FC<BaseProps> = ({ id }) => {
     if (isTemplatesLoaded) {
       console.log("Fetching template with ID:", id);
       const template = TemplateManagerAPI.getTemplate(id);
-      console.log("Selected template:", template);
+      // console.log("Selected template:", template);
       setSelectedTemplate(template);
     }
   }, [id, isTemplatesLoaded]);
@@ -47,17 +47,14 @@ const Base: React.FC<BaseProps> = ({ id }) => {
     return <LoadingScreen />;
   }
 
-  console.log("Rendering components:", selectedTemplate.components);
+  // console.log("Rendering components:", selectedTemplate.components);
 
   return (
     <div className="flex flex-col h-full w-full bg-gray-100 shadow-md overflow-auto">
       <div>
         {selectedTemplate.components.map((item, index) => {
           const Component = item.component;
-          console.log(
-            `Rendering component: ${Component.name} with data:`,
-            item.data
-          );
+          // console.log(`Rendering component: ${Component.name} with data:`, item.data);
           return (
             <div key={index} className="mb-6">
               <Component {...item.data} />

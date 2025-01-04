@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { selectTemplate } from "../../store/slices/templateSlice";
 import TemplateManagerAPI from "../../modules/templateManagerAPI";
@@ -12,17 +11,32 @@ const TemplateList = () => {
       {templates.map((template) => (
         <div
           key={template.id}
-          className="p-6 h-80 bg-gray-100 border border-gray-300 rounded-lg shadow-sm hover:shadow-lg hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer overflow-hidden"
+          className="h-80 bg-gray-100 rounded-lg hover:shadow-lg hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer overflow-hidden"
           onClick={() => dispatch(selectTemplate(template.id))}
         >
-          <div>
-            <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-800">
-                {template.name}
-              </h3>
-              <p className="text-gray-600 text-sm mt-2">Template description</p>
-            </div>
+          {/* Preview Image */}
+          <div className="w-full h-48 bg-gray-200 mb-4 overflow-hidden">
+            {template.preview ? (
+              <img
+                src={template.preview}
+                alt={`${template.name} preview`}
+                className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-110"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-500">
+                No Preview Available
+              </div>
+            )}
+          </div>
+
+          {/* Template Info */}
+          <div className="flex flex-col h-fit justify-between p-3 text-center">
+            <h3 className="text-lg font-bold text-gray-800 truncate">
+              {template.name}
+            </h3>
+            <p className="text-gray-600 text-sm mt-1 line-clamp-2 overflow-hidden">
+              {template.metadata?.description || "No description available."}
+            </p>
           </div>
         </div>
       ))}

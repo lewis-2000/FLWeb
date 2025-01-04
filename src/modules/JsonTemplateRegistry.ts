@@ -37,9 +37,7 @@ export const loadTemplates = async (): Promise<void> => {
       });
     });
 
-    console.log(
-      "JsonTemplateRegistry: Templates successfully loaded and registered."
-    );
+    // console.log(      "JsonTemplateRegistry: Templates successfully loaded and registered."    );
   } catch (error) {
     console.error("Error loading templates:", error);
   }
