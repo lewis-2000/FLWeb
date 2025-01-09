@@ -14,7 +14,7 @@ const MonitorTemplateModal: FC<MonitorTemplateModalProps> = ({ onClose }) => {
     (state: RootState) => state.template.selectedTemplateId
   );
 
-  const template = TemplateManagerAPI.getTemplate(selectedTemplateId);
+  const template = TemplateManagerAPI.getTemplate(selectedTemplateId ?? "");
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 pointer-events-auto">
