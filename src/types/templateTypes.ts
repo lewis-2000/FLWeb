@@ -27,7 +27,7 @@ export interface templateTypes {
   };
   theme?: {
     name?: string;
-    variant?: "light" | "dark" | "custom";
+    variant?: string;
   };
   globalSettings?: Record<string, any>;
   customData?: Record<string, any>;

@@ -32,9 +32,24 @@ const Base: React.FC<BaseProps> = ({ id }) => {
     if (isTemplatesLoaded) {
       console.log("Fetching template with ID:", id);
       const template = TemplateManagerAPI.getTemplate(id);
-      // console.log("Selected template:", template);
       setSelectedTemplate(template);
     }
+  }, [id, isTemplatesLoaded]);
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      if (isTemplatesLoaded) {
+        console.log("Fetching updated template with ID:", id);
+        const updatedTemplate = TemplateManagerAPI.getTemplate(id);
+        setSelectedTemplate(updatedTemplate);
+      }
+    };
+
+    const interval = setInterval(handleUpdate, 1000); // Check for updates every second
+
+    return () => {
+      clearInterval(interval);
+    };
   }, [id, isTemplatesLoaded]);
 
   if (!isTemplatesLoaded) {
@@ -47,17 +62,20 @@ const Base: React.FC<BaseProps> = ({ id }) => {
     return <LoadingScreen />;
   }
 
-  // console.log("Rendering components:", selectedTemplate.components);
-
   return (
     <div className="flex flex-col h-full w-full bg-gray-100 shadow-md overflow-auto">
       <div>
         {selectedTemplate.components.map((item, index) => {
           const Component = item.component;
-          // console.log(`Rendering component: ${Component.name} with data:`, item.data);
+          const data = item.data || {}; // Ensure data is an object
+          const settings = item.settings || {}; // Ensure settings is an object
+
+          // console.log("Rendering component with data:", data);
+          // console.log("Rendering component with settings:", settings);
+
           return (
-            <div key={index} className="mb-6">
-              <Component {...item.data} />
+            <div key={`${index}-${JSON.stringify(settings)}`}>
+              <Component {...data} settings={settings} />
             </div>
           );
         })}

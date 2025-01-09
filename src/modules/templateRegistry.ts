@@ -4,6 +4,8 @@ import BasicHero from "../components/samples/BasicHero";
 import Footer from "../components/samples/Footer";
 import ImageBackgroundHero from "../components/hero/ImageBackgroundHero";
 import ImageSliderForegroundCenterTextHero from "../components/hero/ImageSliderForegroundCenterTextHero";
+import NavbarLeft from "../components/headers/NavbarLeft";
+import VideoBackgroundHero from "../components/hero/VideoBackgroundHero";
 
 const homepageTemplate = {
   id: "homepage",
@@ -36,7 +38,11 @@ const homepageTemplate = {
       component: Footer,
       data: {
         text: "© 2024 Company",
-        links: ["Home", "About", "Contact"],
+        links: [
+          { name: "Home", url: "https://example.com/home" },
+          { name: "About", url: "https://example.com/about" },
+          { name: "Contact", url: "https://example.com/contact" },
+        ],
       },
       settings: {
         colors: {
@@ -155,6 +161,22 @@ const base02Template = {
   preview: "/previews/base02.jpeg", // Image URL for preview
   components: [
     {
+      component: NavbarLeft,
+      data: {
+        logo: "/logo.png",
+        links: [
+          { name: "Home", url: "#" },
+          { name: "About", url: "#" },
+          { name: "Contact", url: "#" },
+        ],
+      },
+      settings: {
+        layout: {
+          alignment: "left",
+        },
+      },
+    },
+    {
       component: ImageSliderForegroundCenterTextHero,
       data: {
         title: "Welcome to My Hero Section Title",
@@ -187,10 +209,51 @@ const base02Template = {
   },
 };
 
+const base03Template = {
+  id: "base03",
+  name: "Base Template 03",
+  author: "Your Company",
+  authorUrl: "https://github.com/your-company",
+  preview: "/previews/base03.jpeg", // Image URL for preview
+  components: [
+    {
+      component: VideoBackgroundHero,
+      data: {
+        title: "Centered Hero Title Text",
+        subtitle: "Centered Hero subtitle",
+        buttonText: "Hero Button",
+        videoUrl: "/vid1.mp4",
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+      },
+    },
+  ],
+  metadata: {
+    description: "A hero-centric template with an Video background.",
+    version: "1.0.0",
+    createdAt: "2025-01-06",
+    updatedAt: "2025-01-06",
+  },
+  theme: {
+    name: "Video Background Theme",
+    variant: "custom",
+  },
+  globalSettings: {
+    transitionEffect: "fade",
+  },
+  customData: {
+    tags: ["hero", "Video", "background"],
+  },
+};
+
 // Register Templates
 TemplateManagerAPI.registerTemplate(homepageTemplate);
 TemplateManagerAPI.registerTemplate(aboutTemplate);
 TemplateManagerAPI.registerTemplate(base01Template);
 TemplateManagerAPI.registerTemplate(base02Template);
+TemplateManagerAPI.registerTemplate(base03Template);
 
 console.log("Templates with previews registered successfully!");

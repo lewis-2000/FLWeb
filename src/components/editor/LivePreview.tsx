@@ -1,3 +1,4 @@
+// LivePreview.tsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
@@ -7,6 +8,8 @@ import { HiArrowLeft } from "react-icons/hi";
 import { IoDesktopOutline } from "react-icons/io5";
 import { MdTabletMac } from "react-icons/md";
 import { FaMobileAlt } from "react-icons/fa";
+import { FaFileExport } from "react-icons/fa"; // Import export icon
+import ExportModal from "./ExportModal"; // Import the modal component
 
 const LivePreview = () => {
   const dispatch = useDispatch();
@@ -17,26 +20,31 @@ const LivePreview = () => {
   const [deviceMode, setDeviceMode] = useState<"desktop" | "tablet" | "mobile">(
     "desktop"
   );
+  const [isExportModalOpen, setExportModalOpen] = useState(false);
 
-  // Define dimensions for each mode
   const modeStyles = {
-    desktop: "w-full h-full", // Full width and height
-    tablet: "w-[768px] h-[1024px]", // Tablet dimensions
-    mobile: "w-[375px] h-[667px]", // Mobile dimensions
+    desktop: "w-full h-full",
+    tablet: "w-[768px] h-[1024px]",
+    mobile: "w-[375px] h-[667px]",
+  };
+
+  const handleExportClick = () => {
+    setExportModalOpen(true);
   };
 
   return (
-    <div className="h-full flex flex-col">
-      {/* Button Strip */}
+    <div
+      className={`h-full flex flex-col ${
+        isExportModalOpen ? "pointer-events-none" : ""
+      }`}
+    >
       <div className="flex items-center bg-[#ededed] rounded-md gap-4 border-b border-gray-300 p-2">
-        {/* Back Button */}
         <button
           onClick={() => dispatch(backToList())}
           className="p-2 bg-[#d1d1d1] rounded-full hover:bg-[#c1c1c1] transition-colors"
         >
           <HiArrowLeft className="text-xl text-gray-700" />
         </button>
-        {/* Device Mode Buttons */}
         <div className="flex items-center gap-4">
           <button
             onClick={() => setDeviceMode("desktop")}
@@ -68,15 +76,21 @@ const LivePreview = () => {
           >
             <FaMobileAlt className="text-xl" />
           </button>
+          <button
+            onClick={handleExportClick}
+            className="p-2 bg-[#d1d1d1] rounded-full hover:bg-[#c1c1c1] transition-colors"
+          >
+            <FaFileExport className="text-xl text-gray-700" />
+          </button>
         </div>
       </div>
-
-      {/* Preview Content */}
       <div
-        className={`flex justify-center items-center bg-gray-100 mt-3 mx-auto overflow-hidden ${modeStyles[deviceMode]}`}
+        className={`flex justify-center items-center bg-gray-100 mt-3 mx-auto overflow-hidden ${
+          modeStyles[deviceMode]
+        } ${isExportModalOpen ? "pointer-events-none" : ""}`}
         style={{
-          overflow: "hidden", // Hide unnecessary scrollbars
-          position: "relative", // Ensure content fits inside
+          overflow: "hidden",
+          position: "relative",
         }}
       >
         {selectedTemplateId ? (
@@ -85,6 +99,9 @@ const LivePreview = () => {
           <p className="text-gray-500">No Template Selected</p>
         )}
       </div>
+      {isExportModalOpen && (
+        <ExportModal onClose={() => setExportModalOpen(false)} />
+      )}
     </div>
   );
 };
