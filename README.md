@@ -5,6 +5,7 @@ This project is a static templating engine designed for simplicity and accessibi
 ---
 
 ## **Features**
+
 - 🛠️ **Customizable Templates:** Manage and edit pre-built templates dynamically.
 - 🌐 **Static Hosting Ready:** Perfect for hosting on platforms like GitHub Pages.
 - 🎨 **Responsive Design:** Built with a dark-themed aesthetic using Tailwind CSS.
@@ -13,10 +14,13 @@ This project is a static templating engine designed for simplicity and accessibi
 ---
 
 ## **Screenshots**
+
 ### **Editor in Action**
-![Editor Screenshot](./images/editor-screenshot.jpeg)
+
+![Editor Screenshot](./images/editorv2.jpeg)
 
 ### **Live Preview**
+
 ![Live Preview Screenshot](./images/live-preview-screenshot.jpeg)
 
 ---
@@ -24,30 +28,37 @@ This project is a static templating engine designed for simplicity and accessibi
 ## **Getting Started**
 
 ### **Prerequisites**
+
 - **Node.js** (>=16.x recommended)
 - **Yarn** (or npm)
 
 ### **Installation**
+
 1. Clone the repository:
+
    ```bash
    https://github.com/lewis-2000/FLWeb.git
    cd FLWeb
 
+   ```
+
 2. Install Dependencies:
-  ```bash
-    yarn install 
-    #or with npm
-    npm install
+
+````bash
+  yarn install
+  #or with npm
+  npm install
 
 3. Running the Development Server:
-  ```bash
-  yarn dev
-  # Or with npm
-  npm run dev
+```bash
+yarn dev
+# Or with npm
+npm run dev
 
 4. Building for Production:
-  ```bash
-  yarn dev
-  # Or with npm
-  npm run dev
+```bash
+yarn dev
+# Or with npm
+npm run dev
 
+````
