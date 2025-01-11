@@ -79,7 +79,7 @@ const EditorPanel: React.FC = () => {
 
     // Navigate nested settings using the key path
     const keys = key.split(".");
-    let target = component.settings[settingsCategory];
+    let target = component.settings[settingsCategory] ?? {};
 
     // Traverse to the nested object
     for (let i = 0; i < keys.length - 1; i++) {

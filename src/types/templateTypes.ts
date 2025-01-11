@@ -11,12 +11,13 @@ export interface templateTypes {
     component: ComponentType<any>;
     data: Record<string, any>;
     settings?: {
-      colors?: Record<string, string>;
+      colors?: Record<string, string | any>;
       typography?: Record<string, string | number | any>;
       spacing?: Record<string, string | number>;
       layout?: Record<string, string | number>;
       border?: Record<string, string | number>;
       shadows?: Record<string, string>;
+      [key: string]: Record<string, any> | undefined; // Add this index signature
     };
   }[];
   metadata?: {

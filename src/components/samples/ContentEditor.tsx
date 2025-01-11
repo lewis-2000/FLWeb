@@ -1,10 +1,10 @@
 import React from "react";
 import { IoMdCodeDownload, IoMdSave, IoMdListBox } from "react-icons/io";
-import TemplateManagerAPI from "../../modules/templateManagerAPI";
+// import TemplateManagerAPI from "../../modules/templateManagerAPI";
 import Base from "../../Base";
 
 const ContentEditor: React.FC = () => {
-  const templates = TemplateManagerAPI.getAllTemplates();
+  // const templates = TemplateManagerAPI.getAllTemplates();
 
   // console.log(templates);
   return (

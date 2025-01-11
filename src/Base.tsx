@@ -50,7 +50,7 @@ const Base: React.FC<BaseProps> = ({ id }) => {
         if (typography?.fontFamily) {
           const fontFamilies = Object.values(typography.fontFamily);
           fontFamilies.forEach((font) => {
-            if (font && !fontsToLoad.includes(font)) {
+            if (typeof font === "string" && !fontsToLoad.includes(font)) {
               fontsToLoad.push(font);
             }
           });
