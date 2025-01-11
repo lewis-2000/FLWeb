@@ -19,8 +19,8 @@ const BasicHero: React.FC<HeroSectionProps> = ({
   const textColor = settings?.colors?.textColor || "#333333";
   const fontSize = settings?.typography?.fontSize;
 
-  console.log("BasicHero -> Props:", { title, subtitle, settings });
-  console.log("BasicHero -> Font size:", fontSize);
+  // console.log("BasicHero -> Props:", { title, subtitle, settings });
+  // console.log("BasicHero -> Font size:", fontSize);
 
   return (
     <section

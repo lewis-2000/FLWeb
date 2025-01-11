@@ -7,6 +7,10 @@ import ImageSliderForegroundCenterTextHero from "../components/hero/ImageSliderF
 import NavbarLeft from "../components/headers/NavbarLeft";
 import VideoBackgroundHero from "../components/hero/VideoBackgroundHero";
 
+//v2
+import HeroActionrightPictureLeft from "../components/v2/v21/HeroActionrightPictureLeft";
+import Gallery from "../components/v2/v21/gallery";
+
 const homepageTemplate = {
   id: "homepage",
   name: "Homepage Template",
@@ -249,11 +253,92 @@ const base03Template = {
   },
 };
 
+const ArtsyGalleryTemplate = {
+  id: "ArtsyGalleryTemplate",
+  name: "Artsy Gallery",
+  author: "FL",
+  authorUrl: "https://github.com/lewis-2000",
+  preview: "/previews/base03.jpeg", // Image URL for preview
+  components: [
+    {
+      component: HeroActionrightPictureLeft,
+      data: {
+        title: "Centered Hero Title Text",
+        subtitle: "Centered Hero subtitle",
+        buttonText: "Hero Button",
+        bgUrl: "/mosaic.png",
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#d8e7e8",
+          imageBackgroundColor: "#666666",
+          titleColor: "#666666",
+          subtitleColor: "#666666",
+        },
+        typography: {
+          fontSize: "24px",
+          fontFamily: {
+            title: "Pacifico",
+            subtitle: "Jersey 15",
+            body: "Lato",
+          },
+        },
+        spacing: {
+          padding: "1px",
+        },
+      },
+    },
+    {
+      component: Gallery,
+      data: {
+        images: [
+          "/img1.jpg",
+          "/img2.jpg",
+          "/img3.jpg",
+          "/img4.jpg",
+          "/img5.webp",
+        ],
+      },
+      settings: {
+        layout: {
+          padding: "1px",
+          columns: 3, // Number of columns
+          gap: "0.2rem", // Gap between images
+        },
+        colors: {
+          backgroundColor: "#000000",
+        },
+      },
+    },
+  ],
+  metadata: {
+    description: "Showcase your portfolio in a beautifully designed gallery.",
+    version: "1.0.0",
+    createdAt: "2025-01-06",
+    updatedAt: "2025-01-06",
+  },
+  theme: {
+    name: "Video Background Theme",
+    variant: "custom",
+  },
+  globalSettings: {
+    transitionEffect: "fade",
+  },
+  customData: {
+    tags: ["hero", "Video", "background", "gallery"],
+  },
+};
+
 // Register Templates
-TemplateManagerAPI.registerTemplate(homepageTemplate);
-TemplateManagerAPI.registerTemplate(aboutTemplate);
+//v2
+TemplateManagerAPI.registerTemplate(ArtsyGalleryTemplate);
 TemplateManagerAPI.registerTemplate(base01Template);
 TemplateManagerAPI.registerTemplate(base02Template);
 TemplateManagerAPI.registerTemplate(base03Template);
+TemplateManagerAPI.registerTemplate(homepageTemplate);
+TemplateManagerAPI.registerTemplate(aboutTemplate);
 
 console.log("Templates with previews registered successfully!");

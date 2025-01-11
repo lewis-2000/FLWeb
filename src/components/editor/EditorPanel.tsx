@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../../store/store";
@@ -66,7 +67,7 @@ const EditorPanel: React.FC = () => {
     componentIndex: number,
     settingsCategory: string,
     key: string,
-    value: string
+    value: any
   ) => {
     const updatedComponents = [...components];
     const component = updatedComponents[componentIndex];
@@ -76,14 +77,23 @@ const EditorPanel: React.FC = () => {
       component.settings = {};
     }
 
-    component.settings[settingsCategory][key] = value;
+    // Navigate nested settings using the key path
+    const keys = key.split(".");
+    let target = component.settings[settingsCategory];
+
+    // Traverse to the nested object
+    for (let i = 0; i < keys.length - 1; i++) {
+      const currentKey = keys[i];
+      if (!target[currentKey]) {
+        target[currentKey] = {}; // Create nested object if missing
+      }
+      target = target[currentKey];
+    }
+
+    // Set the value at the correct level
+    target[keys[keys.length - 1]] = value;
 
     setComponents(updatedComponents);
-    // console.log("Updated components: ", updatedComponents);
-    // console.log("Nested key: ", settingsCategory);
-    // console.log("Value: ", value);
-    // console.log("Component index: ", componentIndex);
-    // console.log("Key: ", key);
 
     // Update the template with the updated components
     if (selectedTemplateId) {
@@ -282,58 +292,153 @@ const EditorPanel: React.FC = () => {
 
                     {/* Settings */}
                     {component.settings && (
-                      <div className="mt-4">
-                        <h4 className="font-medium mb-2">Settings</h4>
+                      <div className="mt-4 border border-gray-300 rounded-lg p-4 shadow-sm">
+                        <h4 className="font-medium mb-4 text-lg">
+                          Component Settings
+                        </h4>
 
-                        {/* Colors */}
-                        {component.settings?.colors &&
-                          Object.entries(component.settings.colors).map(
-                            ([key, value]) => (
-                              <div key={key} className="mb-2">
-                                <label className="block text-sm mb-1">
-                                  {key.charAt(0).toUpperCase() + key.slice(1)}:
-                                </label>
-                                <input
-                                  type="color"
-                                  value={value}
-                                  onChange={(e) =>
-                                    handleSettingChange(
-                                      index,
-                                      "colors",
-                                      key,
-                                      e.target.value
-                                    )
-                                  }
-                                  className="w-full"
-                                />
-                              </div>
-                            )
-                          )}
+                        {/* Render Nested Settings */}
+                        {Object.entries(component.settings).map(
+                          ([category, settings]) => (
+                            <div
+                              key={category}
+                              className="mb-6 border-b border-gray-200 pb-4 last:border-none"
+                            >
+                              <h5 className="font-semibold mb-3 text-base capitalize">
+                                {category}
+                              </h5>
 
-                        {/* Typography */}
-                        {component.settings.typography &&
-                          Object.entries(component.settings.typography).map(
-                            ([key, value]) => (
-                              <div key={key} className="mb-2">
-                                <label className="block text-sm mb-1">
-                                  {key.charAt(0).toUpperCase() + key.slice(1)}:
-                                </label>
-                                <input
-                                  type="text"
-                                  value={value.toString()}
-                                  onChange={(e) =>
-                                    handleSettingChange(
-                                      index,
-                                      "typography",
-                                      key,
-                                      e.target.value
+                              {/* Colors Settings */}
+                              {category === "colors" &&
+                              typeof settings === "object" ? (
+                                <div className="space-y-4">
+                                  {Object.entries(settings).map(
+                                    ([key, value]) => (
+                                      <div key={key} className="mb-2">
+                                        <label className="block text-sm mb-1">
+                                          {key.charAt(0).toUpperCase() +
+                                            key.slice(1)}
+                                          :
+                                        </label>
+                                        <input
+                                          type="color"
+                                          value={value}
+                                          onChange={(e) =>
+                                            handleSettingChange(
+                                              index,
+                                              category,
+                                              key,
+                                              e.target.value
+                                            )
+                                          }
+                                          className="w-12 h-12 cursor-pointer border border-gray-300 rounded-md"
+                                        />
+                                      </div>
                                     )
-                                  }
-                                  className="border rounded p-2 w-full"
-                                />
-                              </div>
-                            )
-                          )}
+                                  )}
+                                </div>
+                              ) : null}
+
+                              {/* Typography Settings */}
+                              {category === "typography" &&
+                              typeof settings === "object" ? (
+                                <div className="space-y-4">
+                                  {/* Font Family */}
+                                  {settings.fontFamily &&
+                                    typeof settings.fontFamily === "object" && (
+                                      <div>
+                                        <h6 className="font-medium mb-2 text-sm">
+                                          Font Family
+                                        </h6>
+                                        {Object.entries(
+                                          settings.fontFamily
+                                        ).map(([key, value]) => (
+                                          <div key={key} className="mb-2">
+                                            <label className="block text-sm mb-1">
+                                              {key.charAt(0).toUpperCase() +
+                                                key.slice(1)}
+                                              :
+                                            </label>
+                                            <input
+                                              type="text"
+                                              value={value as string}
+                                              onChange={(e) =>
+                                                handleSettingChange(
+                                                  index,
+                                                  category,
+                                                  `fontFamily.${key}`,
+                                                  e.target.value
+                                                )
+                                              }
+                                              className="border rounded p-2 w-full"
+                                              placeholder={`Enter font for ${key}`}
+                                            />
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+
+                                  {/* Font Size */}
+                                  {settings.fontSize && (
+                                    <div>
+                                      <label className="block text-sm mb-1">
+                                        Font Size (px):
+                                      </label>
+                                      <input
+                                        type="number"
+                                        value={
+                                          parseInt(
+                                            settings.fontSize as string
+                                          ) || ""
+                                        }
+                                        onChange={(e) =>
+                                          handleSettingChange(
+                                            index,
+                                            category,
+                                            "fontSize",
+                                            `${e.target.value}px`
+                                          )
+                                        }
+                                        className="border rounded p-2 w-full"
+                                        min="8"
+                                        max="100"
+                                        step="1"
+                                      />
+                                    </div>
+                                  )}
+                                </div>
+                              ) : null}
+
+                              {/* Other Categories */}
+                              {typeof settings === "object" &&
+                                category !== "colors" &&
+                                category !== "typography" &&
+                                Object.entries(settings).map(([key, value]) => (
+                                  <div key={key} className="mb-2">
+                                    <label className="block text-sm mb-1">
+                                      {key.charAt(0).toUpperCase() +
+                                        key.slice(1)}
+                                      :
+                                    </label>
+                                    <input
+                                      type={key === "color" ? "color" : "text"}
+                                      value={value.toString()}
+                                      onChange={(e) =>
+                                        handleSettingChange(
+                                          index,
+                                          category,
+                                          key,
+                                          e.target.value
+                                        )
+                                      }
+                                      className="border rounded p-2 w-full"
+                                      placeholder={`Enter value for ${key}`}
+                                    />
+                                  </div>
+                                ))}
+                            </div>
+                          )
+                        )}
                       </div>
                     )}
                   </div>
@@ -341,7 +446,13 @@ const EditorPanel: React.FC = () => {
               </div>
             ))
           ) : (
-            <p className="text-sm text-gray-500">No template selected.</p>
+            <div className="w-full  flex justify-center items-center">
+              <img
+                src="/editor/web.png"
+                alt="Lion Crown"
+                className="object-contain"
+              />
+            </div>
           )}
         </div>
       )}
