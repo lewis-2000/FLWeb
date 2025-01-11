@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Base id="homepage" />} />
+        <Route path="/" element={<Base id="ArtsyGalleryTemplate" />} />
         <Route path="/builder" element={<ContentEditor />} />
         <Route path="/dev" element={<Editor />} />
       </Routes>

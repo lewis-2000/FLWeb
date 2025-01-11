@@ -365,7 +365,13 @@ const ContentEditor: React.FC = () => {
               </div>
             ))
           ) : (
-            <p className="text-sm text-gray-500">No template selected.</p>
+            <div className="w-full h-full flex justify-center items-center">
+              <img
+                src="/editor/lioncrown.png"
+                alt="Lion Crown"
+                className="object-contain"
+              />
+            </div>
           )}
         </div>
       </section>
@@ -376,7 +382,7 @@ const ContentEditor: React.FC = () => {
           <IoMdListBox /> Live Preview
         </h2>
         <div className="flex-1 overflow-auto">
-          <Base id={selectedTemplateId || ""} />
+          <Base id={selectedTemplateId || "homepage"} />
         </div>
       </section>
     </div>
