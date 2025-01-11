@@ -12,7 +12,7 @@ export interface templateTypes {
     data: Record<string, any>;
     settings?: {
       colors?: Record<string, string>;
-      typography?: Record<string, string | number>;
+      typography?: Record<string, string | number | any>;
       spacing?: Record<string, string | number>;
       layout?: Record<string, string | number>;
       border?: Record<string, string | number>;

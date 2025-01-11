@@ -9,7 +9,7 @@ import VideoBackgroundHero from "../components/hero/VideoBackgroundHero";
 
 //v2
 import HeroActionrightPictureLeft from "../components/v2/v21/HeroActionrightPictureLeft";
-import Gallery from "../components/v2/v21/gallery";
+import Gallery from "../components/v2/v21/Gallery";
 
 const homepageTemplate = {
   id: "homepage",
@@ -253,7 +253,9 @@ const base03Template = {
   },
 };
 
-const ArtsyGalleryTemplate = {
+// Register Templates
+//v2
+TemplateManagerAPI.registerTemplate({
   id: "ArtsyGalleryTemplate",
   name: "Artsy Gallery",
   author: "FL",
@@ -330,11 +332,7 @@ const ArtsyGalleryTemplate = {
   customData: {
     tags: ["hero", "Video", "background", "gallery"],
   },
-};
-
-// Register Templates
-//v2
-TemplateManagerAPI.registerTemplate(ArtsyGalleryTemplate);
+});
 TemplateManagerAPI.registerTemplate(base01Template);
 TemplateManagerAPI.registerTemplate(base02Template);
 TemplateManagerAPI.registerTemplate(base03Template);

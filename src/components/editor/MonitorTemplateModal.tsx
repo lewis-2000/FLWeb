@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
