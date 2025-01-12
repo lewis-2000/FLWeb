@@ -11,6 +11,7 @@ import VideoBackgroundHero from "../components/hero/VideoBackgroundHero";
 //v2
 import HeroActionrightPictureLeft from "../components/v2/v21/HeroActionrightPictureLeft";
 import Gallery from "../components/v2/v21/Gallery";
+import GalleryFooter from "../components/v2/v21/Footer";
 
 const homepageTemplate = {
   id: "homepage",
@@ -255,7 +256,7 @@ const base03Template = {
 };
 
 // Register Templates
-//v2
+// v2
 TemplateManagerAPI.registerTemplate({
   id: "ArtsyGalleryTemplate",
   name: "Artsy Gallery",
@@ -269,7 +270,7 @@ TemplateManagerAPI.registerTemplate({
         title: "Centered Hero Title Text",
         subtitle: "Centered Hero subtitle",
         buttonText: "Hero Button",
-        bgUrl: "/FLWeb/mosaic.png", // Image URL
+        bgUrl: "/FLWeb/fairyGroup.png", // Image URL
       },
       settings: {
         layout: {
@@ -277,12 +278,12 @@ TemplateManagerAPI.registerTemplate({
         },
         colors: {
           backgroundColor: "#d8e7e8",
-          imageBackgroundColor: "#666666",
+          imageBackgroundColor: "#d8e7e8",
           titleColor: "#666666",
           subtitleColor: "#666666",
         },
         typography: {
-          fontSize: "24px",
+          fontSize: "40px",
           fontFamily: {
             title: "Pacifico",
             subtitle: "Jersey 15",
@@ -298,11 +299,15 @@ TemplateManagerAPI.registerTemplate({
       component: Gallery,
       data: {
         images: [
-          "/FLWeb/img1.jpg",
-          "/FLWeb/img2.jpg",
-          "/FLWeb/img3.jpg",
-          "/FLWeb/img4.jpg",
-          "/FLWeb/img5.webp",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
         ],
       },
       settings: {
@@ -312,7 +317,26 @@ TemplateManagerAPI.registerTemplate({
           gap: "0.2rem", // Gap between images
         },
         colors: {
-          backgroundColor: "#000000",
+          backgroundColor: "#ffffff",
+        },
+      },
+    },
+    {
+      component: GalleryFooter,
+      data: {
+        text: "Follow us for more updates.",
+        links: [
+          { label: "Instagram", url: "https://instagram.com" },
+          { label: "Twitter", url: "https://twitter.com" },
+          { label: "LinkedIn", url: "https://linkedin.com" },
+        ],
+      },
+      settings: {
+        colors: {
+          backgroundColor: "#222222",
+          textColor: "#ffffff",
+          linkColor: "#f4c542",
+          linkHoverColor: "#d1a82d",
         },
       },
     },
@@ -331,9 +355,10 @@ TemplateManagerAPI.registerTemplate({
     transitionEffect: "fade",
   },
   customData: {
-    tags: ["hero", "Video", "background", "gallery"],
+    tags: ["hero", "Video", "background", "gallery", "footer"],
   },
 });
+
 TemplateManagerAPI.registerTemplate(base01Template);
 TemplateManagerAPI.registerTemplate(base02Template);
 TemplateManagerAPI.registerTemplate(base03Template);

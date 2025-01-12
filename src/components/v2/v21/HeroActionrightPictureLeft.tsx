@@ -13,12 +13,9 @@ interface HeroSectionProps {
     };
     typography?: {
       fontSize?: string;
-      titleFont?: string;
-      subtitleFont?: string;
       fontFamily?: {
         title?: string;
         subtitle?: string;
-        body?: string;
       };
     };
   };
@@ -38,26 +35,27 @@ const HeroActionrightPictureLeft: React.FC<HeroSectionProps> = ({
 
   const fontSize = settings?.typography?.fontSize || "20px";
   const fontFamily = settings?.typography?.fontFamily || {};
-  const titleFont = fontFamily.title || "Roboto"; // Default font for title
-  const subtitleFont = fontFamily.subtitle || "Roboto"; // Default font for subtitle
-  //   const bodyFont = fontFamily.body || "Roboto"; // Default font for body (if needed)
-
-  // console.log(titleFont, subtitleFont);
+  const titleFont = fontFamily.title || "Roboto";
+  const subtitleFont = fontFamily.subtitle || "Roboto";
 
   return (
     <div
-      className="flex w-full justify-between h-[40vh]"
+      className="flex w-full justify-between h-[50vh] border-b-2 border-[#333]"
       style={{ backgroundColor }}
     >
+      {/* Left Section for the Image */}
       <div
-        className="h-full w-1/2 flex justify-center items-center overflow-hidden"
+        className="h-full w-1/2 flex justify-center items-center overflow-hidden "
         style={{
           backgroundImage: `url(${bgUrl})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: "contain", // Ensure the image fits within the container
+          backgroundRepeat: "no-repeat", // Prevent tiling
+          backgroundPosition: "center", // Center the image
           backgroundColor: `${imageBackgroundColor}`,
         }}
       ></div>
+
+      {/* Right Section for Text */}
       <div className="h-full w-1/2 text-center flex flex-col justify-center items-center">
         <h1
           style={{

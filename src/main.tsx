@@ -11,7 +11,6 @@ createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <HashRouter>
         {" "}
-        {/* Remove the basename */}
         <App />
       </HashRouter>
     </Provider>
