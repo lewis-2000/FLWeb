@@ -49,7 +49,11 @@ const Gallery: React.FC<GalleryProps> = ({ images, settings }) => {
               const target = e.target as HTMLImageElement;
               target.src = defaultImage; // Fallback if the image fails to load
             }}
-            className="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 bg-transparent"
+            className="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 outline-none hover:outline-4 hover:outline-gray-500"
+            style={{
+              border: "2px solid #ddd", // Default border around the image
+              transition: "border 0.3s ease-in-out", // Smooth transition for border
+            }}
           />
         </div>
       ))}

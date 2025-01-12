@@ -40,7 +40,7 @@ const HeroActionrightPictureLeft: React.FC<HeroSectionProps> = ({
 
   return (
     <div
-      className="flex w-full justify-between h-[50vh] border-b-2 border-[#333]"
+      className="relative flex w-full justify-between h-[50vh] shadow-[#333] shadow-2xl"
       style={{ backgroundColor }}
     >
       {/* Left Section for the Image */}

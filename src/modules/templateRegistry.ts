@@ -277,8 +277,8 @@ TemplateManagerAPI.registerTemplate({
           textAlignment: "center",
         },
         colors: {
-          backgroundColor: "#d8e7e8",
-          imageBackgroundColor: "#d8e7e8",
+          backgroundColor: "#222222",
+          imageBackgroundColor: "#222222",
           titleColor: "#666666",
           subtitleColor: "#666666",
         },
@@ -312,7 +312,7 @@ TemplateManagerAPI.registerTemplate({
       },
       settings: {
         layout: {
-          padding: "1px",
+          padding: "10px",
           columns: 3, // Number of columns
           gap: "0.2rem", // Gap between images
         },
