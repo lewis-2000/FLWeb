@@ -1,3 +1,4 @@
+// Adjusted for GitHub Pages with `basename` "/FLWeb"
 import TemplateManagerAPI from "./templateManagerAPI";
 import Hero from "../components/samples/Hero";
 import BasicHero from "../components/samples/BasicHero";
@@ -16,7 +17,7 @@ const homepageTemplate = {
   name: "Homepage Template",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/homepage.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/homepage.jpeg", // Image URL for preview
   components: [
     {
       component: BasicHero,
@@ -83,7 +84,7 @@ const aboutTemplate = {
   name: "About Us Template",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/about.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/about.jpeg", // Image URL for preview
   components: [
     {
       component: Hero,
@@ -122,7 +123,7 @@ const base01Template = {
   name: "Base Template 01",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/base01.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base01.jpeg", // Image URL for preview
   components: [
     {
       component: ImageBackgroundHero,
@@ -130,7 +131,7 @@ const base01Template = {
         title: "Centered Hero Title Text",
         subtitle: "Centered Hero Subtitle",
         buttonText: "Hero Button",
-        backgroundImageUrl: "/img2.jpg",
+        backgroundImageUrl: "/FLWeb/img2.jpg", // Image URL
       },
       settings: {
         layout: {
@@ -162,12 +163,12 @@ const base02Template = {
   name: "Base Template 02",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/base02.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base02.jpeg", // Image URL for preview
   components: [
     {
       component: NavbarLeft,
       data: {
-        logo: "/logo.png",
+        logo: "/FLWeb/logo.png", // Image URL for logo
         links: [
           { name: "Home", url: "#" },
           { name: "About", url: "#" },
@@ -186,11 +187,11 @@ const base02Template = {
         title: "Welcome to My Hero Section Title",
         subtitle: "Subtitle static text",
         backgroundImages: [
-          "/img1.jpg",
-          "/img2.jpg",
-          "/img3.jpg",
-          "/img4.jpg",
-          "/img5.webp",
+          "/FLWeb/img1.jpg",
+          "/FLWeb/img2.jpg",
+          "/FLWeb/img3.jpg",
+          "/FLWeb/img4.jpg",
+          "/FLWeb/img5.webp",
         ],
       },
     },
@@ -218,7 +219,7 @@ const base03Template = {
   name: "Base Template 03",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/base03.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base03.jpeg", // Image URL for preview
   components: [
     {
       component: VideoBackgroundHero,
@@ -226,7 +227,7 @@ const base03Template = {
         title: "Centered Hero Title Text",
         subtitle: "Centered Hero subtitle",
         buttonText: "Hero Button",
-        videoUrl: "/vid1.mp4",
+        videoUrl: "/FLWeb/vid1.mp4", // Video URL
       },
       settings: {
         layout: {
@@ -260,7 +261,7 @@ TemplateManagerAPI.registerTemplate({
   name: "Artsy Gallery",
   author: "FL",
   authorUrl: "https://github.com/lewis-2000",
-  preview: "/previews/base03.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base03.jpeg", // Image URL for preview
   components: [
     {
       component: HeroActionrightPictureLeft,
@@ -268,7 +269,7 @@ TemplateManagerAPI.registerTemplate({
         title: "Centered Hero Title Text",
         subtitle: "Centered Hero subtitle",
         buttonText: "Hero Button",
-        bgUrl: "/mosaic.png",
+        bgUrl: "/FLWeb/mosaic.png", // Image URL
       },
       settings: {
         layout: {
@@ -297,11 +298,11 @@ TemplateManagerAPI.registerTemplate({
       component: Gallery,
       data: {
         images: [
-          "/img1.jpg",
-          "/img2.jpg",
-          "/img3.jpg",
-          "/img4.jpg",
-          "/img5.webp",
+          "/FLWeb/img1.jpg",
+          "/FLWeb/img2.jpg",
+          "/FLWeb/img3.jpg",
+          "/FLWeb/img4.jpg",
+          "/FLWeb/img5.webp",
         ],
       },
       settings: {

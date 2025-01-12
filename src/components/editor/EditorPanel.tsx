@@ -448,7 +448,7 @@ const EditorPanel: React.FC = () => {
           ) : (
             <div className="w-full  flex justify-center items-center">
               <img
-                src="/editor/web.png"
+                src="/FLWeb/editor/web.png"
                 alt="Lion Crown"
                 className="object-contain"
               />

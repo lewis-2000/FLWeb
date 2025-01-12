@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://lewis-2000.github.io/flwebFLWeb",
+  "homepage": "https://lewis-2000.github.io/FLWeb",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -24,7 +24,10 @@ const MonitorTemplateModal: FC<MonitorTemplateModalProps> = ({ onClose }) => {
         >
           <IoMdCloseCircle className="text-4xl" />
         </button>
-        <h2 className="text-xl font-semibold mb-4">Monitor Template</h2>
+        <h2 className="text-xl font-semibold mb-4">
+          {TemplateManagerAPI.getTemplate(selectedTemplateId ?? "")?.name}{" "}
+          Template
+        </h2>
         {template ? (
           <pre className="bg-gray-100 p-4 rounded overflow-auto max-h-96">
             {JSON.stringify(template, null, 2)}
