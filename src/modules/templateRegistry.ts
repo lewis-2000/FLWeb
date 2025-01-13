@@ -1,3 +1,4 @@
+// Adjusted for GitHub Pages with `basename` "/FLWeb"
 import TemplateManagerAPI from "./templateManagerAPI";
 import Hero from "../components/samples/Hero";
 import BasicHero from "../components/samples/BasicHero";
@@ -9,14 +10,18 @@ import VideoBackgroundHero from "../components/hero/VideoBackgroundHero";
 
 //v2
 import HeroActionrightPictureLeft from "../components/v2/v21/HeroActionrightPictureLeft";
-import Gallery from "../components/v2/v21/gallery";
+import Gallery from "../components/v2/v21/Gallery";
+import GalleryFooter from "../components/v2/v21/Footer";
+import V22Hero from "../components/v2/v22/V22Hero";
+import V22Nav from "../components/v2/v22/V22Nav";
+import V22About from "../components/v2/v22/V22About";
 
 const homepageTemplate = {
   id: "homepage",
   name: "Homepage Template",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/homepage.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/homepage.jpeg", // Image URL for preview
   components: [
     {
       component: BasicHero,
@@ -83,7 +88,7 @@ const aboutTemplate = {
   name: "About Us Template",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/about.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/about.jpeg", // Image URL for preview
   components: [
     {
       component: Hero,
@@ -122,7 +127,7 @@ const base01Template = {
   name: "Base Template 01",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/base01.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base01.jpeg", // Image URL for preview
   components: [
     {
       component: ImageBackgroundHero,
@@ -130,7 +135,7 @@ const base01Template = {
         title: "Centered Hero Title Text",
         subtitle: "Centered Hero Subtitle",
         buttonText: "Hero Button",
-        backgroundImageUrl: "/img2.jpg",
+        backgroundImageUrl: "/FLWeb/img2.jpg", // Image URL
       },
       settings: {
         layout: {
@@ -162,12 +167,12 @@ const base02Template = {
   name: "Base Template 02",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/base02.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base02.jpeg", // Image URL for preview
   components: [
     {
       component: NavbarLeft,
       data: {
-        logo: "/logo.png",
+        logo: "/FLWeb/logo.png", // Image URL for logo
         links: [
           { name: "Home", url: "#" },
           { name: "About", url: "#" },
@@ -186,11 +191,11 @@ const base02Template = {
         title: "Welcome to My Hero Section Title",
         subtitle: "Subtitle static text",
         backgroundImages: [
-          "/img1.jpg",
-          "/img2.jpg",
-          "/img3.jpg",
-          "/img4.jpg",
-          "/img5.webp",
+          "/FLWeb/img1.jpg",
+          "/FLWeb/img2.jpg",
+          "/FLWeb/img3.jpg",
+          "/FLWeb/img4.jpg",
+          "/FLWeb/img5.webp",
         ],
       },
     },
@@ -218,7 +223,7 @@ const base03Template = {
   name: "Base Template 03",
   author: "Your Company",
   authorUrl: "https://github.com/your-company",
-  preview: "/previews/base03.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base03.jpeg", // Image URL for preview
   components: [
     {
       component: VideoBackgroundHero,
@@ -226,7 +231,7 @@ const base03Template = {
         title: "Centered Hero Title Text",
         subtitle: "Centered Hero subtitle",
         buttonText: "Hero Button",
-        videoUrl: "/vid1.mp4",
+        videoUrl: "/FLWeb/vid1.mp4", // Video URL
       },
       settings: {
         layout: {
@@ -253,12 +258,14 @@ const base03Template = {
   },
 };
 
-const ArtsyGalleryTemplate = {
+// Register Templates
+// v2
+TemplateManagerAPI.registerTemplate({
   id: "ArtsyGalleryTemplate",
   name: "Artsy Gallery",
   author: "FL",
   authorUrl: "https://github.com/lewis-2000",
-  preview: "/previews/base03.jpeg", // Image URL for preview
+  preview: "/FLWeb/previews/base03.jpeg", // Image URL for preview
   components: [
     {
       component: HeroActionrightPictureLeft,
@@ -266,20 +273,20 @@ const ArtsyGalleryTemplate = {
         title: "Centered Hero Title Text",
         subtitle: "Centered Hero subtitle",
         buttonText: "Hero Button",
-        bgUrl: "/mosaic.png",
+        bgUrl: "/FLWeb/fairyGroup.png", // Image URL
       },
       settings: {
         layout: {
           textAlignment: "center",
         },
         colors: {
-          backgroundColor: "#d8e7e8",
-          imageBackgroundColor: "#666666",
-          titleColor: "#666666",
+          backgroundColor: "#222222",
+          imageBackgroundColor: "#222222",
+          titleColor: "#eaa150",
           subtitleColor: "#666666",
         },
         typography: {
-          fontSize: "24px",
+          fontSize: "40px",
           fontFamily: {
             title: "Pacifico",
             subtitle: "Jersey 15",
@@ -295,21 +302,44 @@ const ArtsyGalleryTemplate = {
       component: Gallery,
       data: {
         images: [
-          "/img1.jpg",
-          "/img2.jpg",
-          "/img3.jpg",
-          "/img4.jpg",
-          "/img5.webp",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
+          "/FLWeb/defaults/defaultImage.jpg",
         ],
       },
       settings: {
         layout: {
-          padding: "1px",
+          padding: "10px",
           columns: 3, // Number of columns
           gap: "0.2rem", // Gap between images
         },
         colors: {
-          backgroundColor: "#000000",
+          backgroundColor: "#ffffff",
+        },
+      },
+    },
+    {
+      component: GalleryFooter,
+      data: {
+        text: "Follow us for more updates.",
+        links: [
+          { label: "Instagram", url: "https://instagram.com" },
+          { label: "Twitter", url: "https://twitter.com" },
+          { label: "LinkedIn", url: "https://linkedin.com" },
+        ],
+      },
+      settings: {
+        colors: {
+          backgroundColor: "#222222",
+          textColor: "#ffffff",
+          linkColor: "#f4c542",
+          linkHoverColor: "#d1a82d",
         },
       },
     },
@@ -328,13 +358,108 @@ const ArtsyGalleryTemplate = {
     transitionEffect: "fade",
   },
   customData: {
-    tags: ["hero", "Video", "background", "gallery"],
+    tags: ["hero", "Video", "background", "gallery", "footer"],
   },
-};
+});
 
-// Register Templates
-//v2
-TemplateManagerAPI.registerTemplate(ArtsyGalleryTemplate);
+TemplateManagerAPI.registerTemplate({
+  id: "V22",
+  name: "V22",
+  author: "Your Company",
+  authorUrl: "https://github.com/your-company",
+  preview: "/FLWeb/defaults/defaultImage.png", // Image URL for preview
+  components: [
+    {
+      component: V22Nav,
+      data: {
+        logo: "/FLWeb/logo.png", // Image URL for logo
+        links: [
+          { name: "Bio", url: "#" },
+          { name: "Work", url: "#" },
+          { name: "Background", url: "#" },
+        ],
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#ffffff",
+          linkColor: "#000000",
+          linkHoverColor: "#d1a82d",
+        },
+        typography: {
+          fontSize: "15px",
+          fontFamily: {
+            link: "Pacifico",
+          },
+        },
+        spacing: {
+          padding: "1px",
+        },
+      },
+    },
+    {
+      component: V22Hero,
+      data: {
+        title: "Welcome to My Hero Section Title",
+        subtitle: "Subtitle static text",
+        bgUrl: "/FLWeb/flowerField.jpg", // Image URL
+      },
+    },
+
+    {
+      component: V22About,
+      data: {
+        name: "John Doe",
+        title: "Welcome to My Hero Section Title",
+        subtitle: "Subtitle static text",
+        about:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.", //About description
+        image: "/FLWeb/defaults/defaultImage.png", // Image URL
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#ffffff",
+          nameColor: "#ac4726",
+          titleColor: "#7c8034",
+          bodyColor: "#333333",
+        },
+        typography: {
+          fontSize: "15px",
+
+          fontFamily: {
+            name: "Pacifico",
+            title: "Oswald",
+            body: "Lato",
+          },
+        },
+        spacing: {
+          height: "auto",
+          padding: "10px",
+        },
+      },
+    },
+  ],
+  metadata: {
+    description: "V22 Desc.",
+    version: "1.0.0",
+    createdAt: "2025-01-13",
+    updatedAt: "2025-01-13",
+  },
+  theme: {
+    name: "Light",
+    variant: "custom",
+  },
+  globalSettings: {},
+  customData: {
+    tags: ["hero", "slider", "images"],
+  },
+});
+
 TemplateManagerAPI.registerTemplate(base01Template);
 TemplateManagerAPI.registerTemplate(base02Template);
 TemplateManagerAPI.registerTemplate(base03Template);

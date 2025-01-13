@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import {
   IoIosArrowDown,
@@ -84,6 +83,9 @@ const ContentEditor: React.FC = () => {
       component.settings = {};
     }
 
+    if (!component.settings[settingsCategory]) {
+      component.settings[settingsCategory] = {};
+    }
     component.settings[settingsCategory][key] = value;
 
     setComponents(updatedComponents);
