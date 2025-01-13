@@ -93,4 +93,4 @@ npm run dev
 
 ## Visit the Live Development Website
 
-- **FLWeb Static Content Editor:** The line `(https://lewis-2000.github.io/FLWeb/)`
+- **FLWeb Static Content Editor:** The line `https://lewis-2000.github.io/FLWeb/`
