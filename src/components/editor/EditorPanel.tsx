@@ -6,6 +6,7 @@ import { toggleEditorPanel } from "../../store/slices/interactionsSlice";
 import TemplateManagerAPI from "../../modules/templateManagerAPI";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { SiGooglefonts } from "react-icons/si";
 
 const EditorPanel: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -347,9 +348,25 @@ const EditorPanel: React.FC = () => {
                                   {settings.fontFamily &&
                                     typeof settings.fontFamily === "object" && (
                                       <div>
-                                        <h6 className="font-medium mb-2 text-sm">
-                                          Font Family
+                                        <h6
+                                          className="font-bold mb-2 text-[0.8rem] flex items-center text-gray-500 dark:text-gray-200"
+                                          style={{
+                                            fontWeight: "bold",
+                                            display: "inline-flex",
+                                            alignItems: "center",
+                                            gap: "0.5rem",
+                                          }}
+                                        >
+                                          Font Family{" "}
+                                          <SiGooglefonts
+                                            style={{
+                                              color: "orange",
+                                              fontSize: "1.1rem",
+                                            }}
+                                          />{" "}
+                                          by Google Fonts
                                         </h6>
+
                                         {Object.entries(
                                           settings.fontFamily
                                         ).map(([key, value]) => (

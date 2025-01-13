@@ -12,6 +12,9 @@ import VideoBackgroundHero from "../components/hero/VideoBackgroundHero";
 import HeroActionrightPictureLeft from "../components/v2/v21/HeroActionrightPictureLeft";
 import Gallery from "../components/v2/v21/Gallery";
 import GalleryFooter from "../components/v2/v21/Footer";
+import V22Hero from "../components/v2/v22/V22Hero";
+import V22Nav from "../components/v2/v22/V22Nav";
+import V22About from "../components/v2/v22/V22About";
 
 const homepageTemplate = {
   id: "homepage",
@@ -279,7 +282,7 @@ TemplateManagerAPI.registerTemplate({
         colors: {
           backgroundColor: "#222222",
           imageBackgroundColor: "#222222",
-          titleColor: "#666666",
+          titleColor: "#eaa150",
           subtitleColor: "#666666",
         },
         typography: {
@@ -356,6 +359,104 @@ TemplateManagerAPI.registerTemplate({
   },
   customData: {
     tags: ["hero", "Video", "background", "gallery", "footer"],
+  },
+});
+
+TemplateManagerAPI.registerTemplate({
+  id: "V22",
+  name: "V22",
+  author: "Your Company",
+  authorUrl: "https://github.com/your-company",
+  preview: "/FLWeb/defaults/defaultImage.png", // Image URL for preview
+  components: [
+    {
+      component: V22Nav,
+      data: {
+        logo: "/FLWeb/logo.png", // Image URL for logo
+        links: [
+          { name: "Bio", url: "#" },
+          { name: "Work", url: "#" },
+          { name: "Background", url: "#" },
+        ],
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#ffffff",
+          linkColor: "#000000",
+          linkHoverColor: "#d1a82d",
+        },
+        typography: {
+          fontSize: "15px",
+          fontFamily: {
+            link: "Pacifico",
+          },
+        },
+        spacing: {
+          padding: "1px",
+        },
+      },
+    },
+    {
+      component: V22Hero,
+      data: {
+        title: "Welcome to My Hero Section Title",
+        subtitle: "Subtitle static text",
+        bgUrl: "/FLWeb/flowerField.jpg", // Image URL
+      },
+    },
+
+    {
+      component: V22About,
+      data: {
+        name: "John Doe",
+        title: "Welcome to My Hero Section Title",
+        subtitle: "Subtitle static text",
+        about:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.", //About description
+        image: "/FLWeb/defaults/defaultImage.png", // Image URL
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#ffffff",
+          nameColor: "#ac4726",
+          titleColor: "#7c8034",
+          bodyColor: "#333333",
+        },
+        typography: {
+          fontSize: "15px",
+
+          fontFamily: {
+            name: "Pacifico",
+            title: "Oswald",
+            body: "Lato",
+          },
+        },
+        spacing: {
+          height: "auto",
+          padding: "10px",
+        },
+      },
+    },
+  ],
+  metadata: {
+    description: "V22 Desc.",
+    version: "1.0.0",
+    createdAt: "2025-01-13",
+    updatedAt: "2025-01-13",
+  },
+  theme: {
+    name: "Light",
+    variant: "custom",
+  },
+  globalSettings: {},
+  customData: {
+    tags: ["hero", "slider", "images"],
   },
 });
 
