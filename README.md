@@ -17,11 +17,39 @@ This project is a static templating engine designed for simplicity and accessibi
 
 ### **Editor in Action**
 
-![Editor Screenshot](./images/editorv2.jpeg)
+![Editor Screenshot](./images/NewV2Editor.jpeg)
+
+### **Editor Preview**
+
+![Editor Screenshot](./images/live-preview-screenshot.jpeg)
+
+### **Editor Panel Colors**
+
+![Editor Panel Colors Screenshot](./images/V2Colors.jpeg)
 
 ### **Live Preview**
 
 ![Live Preview Screenshot](./images/live-preview-screenshot.jpeg)
+
+### **Editor Links**
+
+![Editor Links Screenshot](./images/V2Links.jpeg)
+
+### **Tablet View**
+
+![Tablet View Screenshot](./images/V2TabletView.jpeg)
+
+### **Mobile View**
+
+![Live Preview Screenshot](./images/V2MobileView.jpeg)
+
+### **Editor Typography**
+
+![Typography Screenshot](./images/V2Typography.jpeg)
+
+### **Editor Template List**
+
+![Template List Screenshot](./images/V2EditorTemplateList.jpeg)
 
 ---
 
@@ -62,3 +90,7 @@ yarn dev
 npm run dev
 
 ````
+
+## Visit the Live Development Website
+
+- **FLWeb Static Content Editor:** The line `(https://lewis-2000.github.io/FLWeb/)`
