@@ -349,7 +349,7 @@ const EditorPanel: React.FC = () => {
                                     typeof settings.fontFamily === "object" && (
                                       <div>
                                         <h6
-                                          className="font-bold mb-2 text-[0.8rem] flex items-center text-gray-500 dark:text-gray-200"
+                                          className="font-bold mb-2 text-[0.8rem] flex items-center text-gray-500 dark:text-gray-700"
                                           style={{
                                             fontWeight: "bold",
                                             display: "inline-flex",

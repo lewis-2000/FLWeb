@@ -51,6 +51,7 @@ const V22About: React.FC<AboutProps> = ({ name, about, image, settings }) => {
   return (
     <div
       className={`w-full flex flex-col items-center`}
+      id="about"
       style={{
         backgroundColor,
         textAlign: textAlignment,

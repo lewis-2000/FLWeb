@@ -15,6 +15,11 @@ import GalleryFooter from "../components/v2/v21/Footer";
 import V22Hero from "../components/v2/v22/V22Hero";
 import V22Nav from "../components/v2/v22/V22Nav";
 import V22About from "../components/v2/v22/V22About";
+import V22Work from "../components/v2/v22/V22Work";
+import V22Experience from "../components/v2/v22/V22Experience";
+import V22Background from "../components/v2/v22/V22Background";
+import V22Quote from "../components/v2/v22/V22Quote";
+import V22Footer from "../components/v2/v22/V22Footer";
 
 const homepageTemplate = {
   id: "homepage",
@@ -440,6 +445,184 @@ TemplateManagerAPI.registerTemplate({
         spacing: {
           height: "auto",
           padding: "10px",
+        },
+      },
+    },
+    {
+      component: V22Work,
+      data: {
+        heading: "Current Work",
+        title: "John Doe and CO.",
+
+        image: "/FLWeb/defaults/defaultImage.png", // Image URL
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#ffffff",
+          headingColor: "#ac4726",
+          titleColor: "#7c8034",
+        },
+        typography: {
+          fontSize: "75px",
+
+          fontFamily: {
+            heading: "Pacifico",
+            title: "Oswald",
+          },
+        },
+        spacing: {
+          height: "auto",
+          padding: "10px",
+          margin: "0px",
+        },
+      },
+    },
+    {
+      component: V22Experience,
+      data: {
+        heading: "Operating Experience",
+        image: "/FLWeb/fieldVector.png", // Image URL
+        experience1:
+          "Designed and implemented scalable backend systems, ensuring high availability and low latency across distributed architectures.",
+        experience2:
+          "Collaborated with cross-functional teams to enhance UI/UX, improving user engagement by 25%.",
+        experience3:
+          "Optimized database queries, reducing query execution time by 40% for critical workflows.",
+        experience4:
+          "Led a team of developers in adopting CI/CD practices, accelerating deployment cycles by 50%.",
+        experience5:
+          "Conducted code reviews and provided mentorship, fostering a culture of continuous learning and improvement.",
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#efc042",
+          headingColor: "#ac4726",
+          subTitleColor: "#797d2f",
+          cardColor: "#ffffff",
+        },
+        typography: {
+          fontSize: "15px",
+          fontFamily: {
+            heading: "Oswald",
+            subTitle: "Oswald",
+            body: "Lato",
+          },
+        },
+        spacing: {
+          height: "auto",
+          padding: "10px",
+          margin: "0px",
+        },
+      },
+    },
+    {
+      component: V22Background,
+      data: {
+        heading: "Explore Your Path", // Background-specific heading
+        image: "/FLWeb/", // Optional background image URL
+        description:
+          "Set the tone for your journey with a visually captivating background that aligns with your vision.", // Relevant description
+        gridItems: [
+          "Discover new opportunities",
+          "Embrace creativity",
+          "Pursue innovation",
+          "Collaborate with teams",
+          "Learn and grow",
+          "Achieve your goals",
+          "Stay inspired",
+          "Empower yourself",
+          "Define your success",
+        ], // Items to display in the grid
+      },
+      settings: {
+        layout: {
+          textAlignment: "center",
+        },
+        colors: {
+          backgroundColor: "#ffffff", // white theme background
+          headingColor: "#ac4726", // Deep brown heading color
+          subTitleColor: "#797d2f", // Olive subtitle color
+          cardColor: "#501b1b", // White card background
+        },
+        typography: {
+          fontSize: "18px", // Slightly larger font for emphasis
+          fontFamily: {
+            heading: "Pacifico", // Artistic font for heading
+            body: "Lato", // Clean font for the grid items
+          },
+        },
+        spacing: {
+          height: "auto", // Adaptable height
+          padding: "20px", // Comfortable padding
+          margin: "0px", // No external margin
+        },
+      },
+    },
+    {
+      component: V22Quote,
+      data: {
+        quote: "The journey of a thousand miles begins with a single step.", // Inspirational quote
+        author: "Lao Tzu", // Author of the quote
+        image: "/FLWeb/quoteBackground.png", // Optional background image
+      },
+      settings: {
+        layout: {
+          textAlignment: "center", // Align text in the center
+        },
+        colors: {
+          backgroundColor: "#7c8034", // background color
+          textColor: "#eeeeee", // Light text color for contrast
+          authorColor: "#ffd369", // Highlighted author color
+        },
+        typography: {
+          fontSize: "1.5rem", // Font size for the quote
+          fontFamily: {
+            quote: "Pacifico", // Artistic font for the quote
+            author: "Lato", // Clean font for the author
+          },
+        },
+        spacing: {
+          padding: "20px", // Padding around the quote
+          margin: "0 auto", // Center alignment
+        },
+      },
+    },
+    {
+      component: V22Footer,
+      data: {
+        links: [
+          { label: "LinkedIn", url: "https://www.linkedin.com" },
+          { label: "Twitter", url: "https://www.twitter.com" },
+        ],
+        contactMe: {
+          email: "contact@yourdomain.com",
+          phone: "+123 456 7890",
+        },
+      },
+      settings: {
+        layout: {
+          textAlignment: "left", // Align content to the left by default
+        },
+        colors: {
+          backgroundColor: "#333333", // Dark background
+          textColor: "#ffffff", // White text
+          linkColor: "#ffd369", // Highlighted link color
+        },
+        typography: {
+          fontSize: "0.9rem", // Small font
+          fontFamily: {
+            body: "Lato", // Clean font for the footer
+          },
+        },
+        spacing: {
+          padding: "15px 20px", // Padding for the footer
+          gap: "1rem", // Gap between items
         },
       },
     },
