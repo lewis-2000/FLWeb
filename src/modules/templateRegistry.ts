@@ -20,6 +20,8 @@ import V22Experience from "../components/v2/v22/V22Experience";
 import V22Background from "../components/v2/v22/V22Background";
 import V22Quote from "../components/v2/v22/V22Quote";
 import V22Footer from "../components/v2/v22/V22Footer";
+import V23Hero from "../components/v2/v23/V23Hero";
+import V23Nav from "../components/v2/v23/V23Nav";
 
 const homepageTemplate = {
   id: "homepage",
@@ -641,6 +643,69 @@ TemplateManagerAPI.registerTemplate({
   customData: {
     tags: ["hero", "slider", "images"],
   },
+});
+
+TemplateManagerAPI.registerTemplate({
+  id: "V23",
+  name: "V23",
+  components: [
+    {
+      component: V23Nav,
+      data: {
+        logo: "/FLWeb/logo.png", // Image URL for logo
+        links: [
+          { name: "Home", url: "#" },
+          { name: "About", url: "#" },
+          { name: "Services", url: "#" },
+          { name: "Contact", url: "#" },
+        ],
+      },
+    },
+    {
+      component: V23Hero,
+      data: {
+        heading: "Welcome to the V23 Hero Section",
+        title: "Hero Title",
+        subtitle: "Hero Subtitle",
+        bgUrl: "/FLWeb/bubbles.mp4", // Image URL
+      },
+      settings: {
+        colors: {
+          backgroundColor: "#000000",
+          headingColor: "#ffffff",
+          titleColor: "#ffffff",
+          subtitleColor: "#ffffff",
+        },
+        layout: {
+          textAlignment: "center",
+        },
+        spacing: {
+          padding: "20px",
+          gap: "10px",
+        },
+        typography: {
+          fontSize: "18px", // Slightly larger font for emphasis
+          fontFamily: {
+            heading: "Pacifico", // Artistic font for heading
+            title: "Lato", // Clean font for the title
+            subtitle: "Lato", // Clean font for the subtitle
+          },
+        },
+      },
+    },
+  ],
+  metadata: {
+    description: "V23 Desc.",
+    version: "1.0.0",
+    createdAt: "2025-01-18",
+    updatedAt: "2025-01-18",
+  },
+  theme: {
+    name: "Light",
+    variant: "custom",
+  },
+  globalSettings: {},
+  customData: {},
 });
 
 TemplateManagerAPI.registerTemplate(base01Template);
