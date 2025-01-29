@@ -103,7 +103,7 @@ const Base: React.FC<BaseProps> = ({ id }) => {
 
   // Render the template components
   return (
-    <div className="flex flex-col h-full w-full bg-gray-100 overflow-auto">
+    <div className="flex flex-col h-full w-full overflow-auto">
       <div>
         {selectedTemplate.components.map((item, index) => {
           const Component = item.component;

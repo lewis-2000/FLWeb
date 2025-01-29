@@ -10,7 +10,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Editor />} />
-        <Route path="/dev" element={<Base id="V23" />} />
+        <Route path="/dev" element={<Base id="V25" />} />
         <Route path="/builder" element={<ContentEditor />} />
       </Routes>
     </div>

@@ -1,4 +1,3 @@
-// Adjusted for GitHub Pages with `basename` "/FLWeb"
 import TemplateManagerAPI from "./templateManagerAPI";
 import Hero from "../components/samples/Hero";
 import BasicHero from "../components/samples/BasicHero";
@@ -22,6 +21,9 @@ import V22Quote from "../components/v2/v22/V22Quote";
 import V22Footer from "../components/v2/v22/V22Footer";
 import V23Hero from "../components/v2/v23/V23Hero";
 import V23Nav from "../components/v2/v23/V23Nav";
+import V25Nav from "../components/v2/v25/V25Nav";
+import V25Hero from "../components/v2/v25/V25Hero";
+import V25Body from "../components/v2/v25/V25Body";
 
 const homepageTemplate = {
   id: "homepage",
@@ -686,8 +688,8 @@ TemplateManagerAPI.registerTemplate({
         typography: {
           fontSize: "18px", // Slightly larger font for emphasis
           fontFamily: {
-            heading: "Pacifico", // Artistic font for heading
-            title: "Lato", // Clean font for the title
+            heading: "Tangerine", // Artistic font for heading
+            title: "Bebas Neue", // Clean font for the title
             subtitle: "Lato", // Clean font for the subtitle
           },
         },
@@ -706,6 +708,41 @@ TemplateManagerAPI.registerTemplate({
   },
   globalSettings: {},
   customData: {},
+});
+
+TemplateManagerAPI.registerTemplate({
+  id: "V25",
+  name: "V25",
+  components: [
+    {
+      component: V25Nav,
+      data: {
+        logo: "/FLWeb/logo.png", // Image URL for logo
+        links: [
+          { name: "Home", url: "#" },
+          { name: "About", url: "#" },
+          { name: "Services", url: "#" },
+          { name: "Contact", url: "#" },
+        ],
+      },
+      settings: {},
+    },
+    {
+      component: V25Hero,
+      data: {
+        heading: "Welcome to the V25 Hero Section",
+        title: "Hero Title",
+        subtitle: "Hero Subtitle",
+        bgUrl: "/FLWeb/bubbles.mp4", // Image URL
+      },
+      settings: {},
+    },
+    {
+      component: V25Body,
+      data: {},
+      settings: {},
+    },
+  ],
 });
 
 TemplateManagerAPI.registerTemplate(base01Template);
